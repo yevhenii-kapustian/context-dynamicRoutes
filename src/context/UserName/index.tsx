@@ -7,9 +7,10 @@ const UserContext = createContext<UserNameType | null>(null)
 
 export const UserNameContextProvider = ({children}: {children: React.ReactNode}) => {
     const [userName, setUserName] = useState<string>("")
+    const [savedUserName, setSavedUserName] = useState<string>("")
 
     return(
-        <UserContext.Provider value={{userName, setUserName}}>
+        <UserContext.Provider value={{userName, setUserName, savedUserName, setSavedUserName}}>
             {children}
         </UserContext.Provider>
     )

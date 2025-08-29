@@ -8,5 +8,7 @@ export type CategoryListType = {
 export type CategoryListContextType = {
     category: CategoryListType[],
     setCategory: (category:CategoryListType[]) => void,
-    getCategory: () => void
+    getCategory: () => void,
+    userCategory: string,
+    setUserCategory: (category:string) => void
 }

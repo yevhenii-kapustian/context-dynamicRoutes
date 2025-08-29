@@ -1,11 +1,20 @@
 'use client'
 
 import { useCategoryListContext } from "@/context/CategoryList"
+import { UserNameType } from "@/types/userName"
 import { CategoryListContextType } from "@/types/loginForm"
 import { useEffect } from "react"
+import { useUserContext } from "@/context/UserName"
 
 const LoginForm = () => {
-    const {getCategory, category} = useCategoryListContext() as CategoryListContextType
+    const {getCategory, category, userCategory, setUserCategory} = useCategoryListContext() as CategoryListContextType
+    const {userName, setUserName, setSavedUserName} = useUserContext() as UserNameType
+
+    const handleSignIn = (e:React.FormEvent) => {
+        e.preventDefault()
+        if (userCategory === "none") return
+        setSavedUserName(userName)
+    }
 
     useEffect(() => {
         getCategory()
@@ -16,15 +25,16 @@ const LoginForm = () => {
             <h3 className="text-xl text-center">Login</h3>
             <fieldset className="p-2 flex flex-col border border-[#598D66] rounded">
                 <label htmlFor="name">Enter your name:</label>
-                <input type="text" id="name" placeholder="Name" required/>
+                <input onChange={(e) => setUserName(e.target.value)} value={userName} type="text" id="name" placeholder="Name" required/>
             </fieldset>
             <fieldset className="p-2 border border-[#598D66] rounded">
                 <label htmlFor="category">Choose category:</label>
-                <select className="w-full p-1 border-b" name="category" id="category" required>
+                <select onChange={(e) => setUserCategory(e.target.value)} className="w-full p-1 border-b" name="category" id="category" required>
+                    <option value="none">None</option>
                     {category.map((item, index) => <option key={index} value={item.strCategory}>{item.strCategory}</option> )}
                 </select>
             </fieldset>
-            <button className="border" onClick={() => {}}>Sign in</button>
+            <button className="border" onClick={handleSignIn}>Sign in</button>
         </form>
     )
 }

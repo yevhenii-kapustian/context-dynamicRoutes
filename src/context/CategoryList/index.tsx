@@ -8,6 +8,7 @@ const CategoryListContext = createContext<CategoryListContextType | null>(null)
 export const CategoryListContextProvider = ({children}: {children: React.ReactNode}) => {
     const API_ENDPOINT = "https://www.themealdb.com/api/json/v1/1/";
     const [category, setCategory] = useState<CategoryListType[]>([])
+    const [userCategory, setUserCategory] = useState<string>("none")
 
     async function getCategory() {
         try {
@@ -25,7 +26,7 @@ export const CategoryListContextProvider = ({children}: {children: React.ReactNo
     console.log(category);
     
     return(
-        <CategoryListContext.Provider value={{category, setCategory, getCategory}}>
+        <CategoryListContext.Provider value={{category, setCategory, getCategory, userCategory, setUserCategory}}>
             {children}
         </CategoryListContext.Provider>
     )

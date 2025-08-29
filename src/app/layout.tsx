@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
 import { CategoryListContextProvider } from "@/context/CategoryList";
 import { UserNameContextProvider } from "@/context/UserName";
 
@@ -31,7 +32,8 @@ export default function RootLayout({
       >
         <CategoryListContextProvider>
           <UserNameContextProvider>
-            {children}
+            <Header/>
+              {children}
           </UserNameContextProvider>
         </CategoryListContextProvider>
       </body>

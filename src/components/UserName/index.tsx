@@ -4,9 +4,9 @@ import { useUserContext } from "@/context/UserName"
 import { UserNameType } from "@/types/userName"
 
 const UserName = () => {
-    const {userName} = useUserContext() as UserNameType
+    const {savedUserName} = useUserContext() as UserNameType
 
-    return <p>{userName}</p>
+    return <p>{savedUserName}</p>
 }
 
 export default UserName

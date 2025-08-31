@@ -5,24 +5,21 @@ import { MealType } from "@/types/meal";
 import { CategoryListContextType } from "@/types/loginForm";
 import { useCategoryListContext } from "@/context/CategoryList";
 import Image from "next/image";
+import { DataType } from "@/types/fetchDataTypes";
+import { useData } from "@/context/Data";
 
 const Meal = () => {
     const {userCategory} = useCategoryListContext() as CategoryListContextType
+    const {fetchData} = useData() as DataType
     const [showMeal, setShowMeal] = useState<MealType[]>([])
 
-    const fetchMeal = async () => {
-        try {
-            const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${userCategory}`);
-            const data = await response.json()
-            setShowMeal(data.meals)
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
     useEffect(() => {
-        fetchMeal()
-    }, [])
+        const getMeals = async () => {
+            const data = await fetchData<{meals:MealType[]}>({url: `https://www.themealdb.com/api/json/v1/1/filter.php?c=${userCategory}`})
+            setShowMeal(data.meals)
+        }
+        getMeals()
+    }, [userCategory])
 
     return(
         <>

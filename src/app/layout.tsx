@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import { CategoryListContextProvider } from "@/context/CategoryList";
 import { UserNameContextProvider } from "@/context/UserName";
 import LoginFormWrapper from "@/components/LoginFormWrapper";
+import { DataProvider } from "@/context/Data";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,14 +32,16 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <CategoryListContextProvider>
+        <DataProvider>
           <UserNameContextProvider>
-            <Header/>
-            <LoginFormWrapper>
-                {children}
-            </LoginFormWrapper>
+            <CategoryListContextProvider>
+              <Header/>
+              <LoginFormWrapper>
+                  {children}
+              </LoginFormWrapper>
+            </CategoryListContextProvider>
           </UserNameContextProvider>
-        </CategoryListContextProvider>
+        </DataProvider>
       </body>
     </html>
   );

@@ -12,7 +12,7 @@ type DataType = {
     fetchData: (url: FetchDataType) => void
 }
 
-export const Data = ({children}: {children: React.ReactNode}) => {
+export const DataProvider = ({children}: {children: React.ReactNode}) => {
 
     const fetchData = async ({url}:FetchDataType) => {
         try {
@@ -30,6 +30,6 @@ export const Data = ({children}: {children: React.ReactNode}) => {
     )
 }
 
-export const useDataContext = () => {
+export const useData = () => {
     return useContext(DataContext)
 }

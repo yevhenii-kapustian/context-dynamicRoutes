@@ -3,5 +3,5 @@ export type FetchDataType = {
 }
 
 export type DataType = {
-    fetchData: (url: FetchDataType) => void
+    fetchData: <T>(url: FetchDataType) => Promise<T>
 }

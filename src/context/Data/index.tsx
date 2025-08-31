@@ -1,16 +1,10 @@
 'use client'
 
 import { createContext, useContext } from "react"
+import { FetchDataType, DataType } from "@/types/fetchDataTypes"
 
 const DataContext = createContext<DataType | null>(null)
 
-type FetchDataType = {
-    url: string
-}
-
-type DataType = {
-    fetchData: (url: FetchDataType) => void
-}
 
 export const DataProvider = ({children}: {children: React.ReactNode}) => {
 

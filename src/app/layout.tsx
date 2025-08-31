@@ -32,16 +32,16 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <CategoryListContextProvider>
+        <DataProvider>
           <UserNameContextProvider>
-            <Header/>
-            <DataProvider>
-            <LoginFormWrapper>
-                {children}
-            </LoginFormWrapper>
-            </DataProvider>
+            <CategoryListContextProvider>
+              <Header/>
+              <LoginFormWrapper>
+                  {children}
+              </LoginFormWrapper>
+            </CategoryListContextProvider>
           </UserNameContextProvider>
-        </CategoryListContextProvider>
+        </DataProvider>
       </body>
     </html>
   );

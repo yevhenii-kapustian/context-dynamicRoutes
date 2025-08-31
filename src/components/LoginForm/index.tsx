@@ -29,7 +29,7 @@ const LoginForm = () => {
             </fieldset>
             <fieldset className="p-2 border border-[#598D66] rounded">
                 <label htmlFor="category">Choose category:</label>
-                <select onChange={(e) => setUserCategory(e.target.value)} className="w-full p-1 border-b" name="category" id="category" required>
+                <select onChange={(e) => setUserCategory(e.target.value)} value={userCategory} className="w-full p-1 border-b" name="category" id="category" required>
                     <option value="none">None</option>
                     {category.map((item, index) => <option key={index} value={item.strCategory}>{item.strCategory}</option> )}
                 </select>

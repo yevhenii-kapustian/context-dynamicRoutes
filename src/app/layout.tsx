@@ -35,8 +35,8 @@ export default function RootLayout({
         <DataProvider>
           <UserNameContextProvider>
             <CategoryListContextProvider>
-              <Header/>
               <LoginFormWrapper>
+              <Header/>
                   {children}
               </LoginFormWrapper>
             </CategoryListContextProvider>

@@ -1,6 +1,10 @@
-const CategoriesPage = () => {
+import MealsCategory from "@/components/MealsCategory"
+
+const CategoriesPage = () => {    
     return(
-        <>This is Category Page</>
+        <>
+        <MealsCategory/>
+        </>
     )
 }
 

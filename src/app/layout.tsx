@@ -6,6 +6,7 @@ import { CategoryListContextProvider } from "@/context/CategoryList";
 import { UserNameContextProvider } from "@/context/UserName";
 import LoginFormWrapper from "@/components/LoginFormWrapper";
 import { DataProvider } from "@/context/Data";
+import { MealContextProvider } from "@/context/MealContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,10 +36,12 @@ export default function RootLayout({
         <DataProvider>
           <UserNameContextProvider>
             <CategoryListContextProvider>
-              <LoginFormWrapper>
-              <Header/>
-                  {children}
-              </LoginFormWrapper>
+              <MealContextProvider>
+                <LoginFormWrapper>
+                <Header/>
+                    {children}
+                </LoginFormWrapper>
+              </MealContextProvider>
             </CategoryListContextProvider>
           </UserNameContextProvider>
         </DataProvider>

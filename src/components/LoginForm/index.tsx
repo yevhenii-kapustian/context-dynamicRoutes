@@ -5,6 +5,7 @@ import { UserNameType } from "@/types/userName"
 import { CategoryListContextType } from "@/types/loginForm"
 import { useEffect } from "react"
 import { useUserContext } from "@/context/UserName"
+import CategorySelect from "../CategorySelect"
 
 const LoginForm = () => {
     const {getCategory, category, userCategory, setUserCategory} = useCategoryListContext() as CategoryListContextType
@@ -29,10 +30,7 @@ const LoginForm = () => {
             </fieldset>
             <fieldset className="p-2 border border-[#598D66] rounded">
                 <label htmlFor="category">Choose category:</label>
-                <select onChange={(e) => setUserCategory(e.target.value)} value={userCategory} className="w-full p-1 border-b" name="category" id="category" required>
-                    <option value="none">None</option>
-                    {category.map((item, index) => <option key={index} value={item.strCategory}>{item.strCategory}</option> )}
-                </select>
+                <CategorySelect/>
             </fieldset>
             <button className="border" onClick={handleSignIn}>Sign in</button>
         </form>

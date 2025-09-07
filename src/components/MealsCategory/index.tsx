@@ -15,7 +15,7 @@ const MealsCategory = () => {
     const {fetchData} = useData() as DataType
     const [showMeal, setShowMeal] = useState<MealType[]>([])
     const [showMore, setShowMore] = useState<number>(10)
-    const {savedUserMealId, setSavedUserMealId} = useMealContext() as MealValueType
+    const {setSavedUserMealId} = useMealContext() as MealValueType
 
     const showMoreMeals = showMeal.slice(0, showMore)
 
@@ -34,11 +34,28 @@ const MealsCategory = () => {
 
     return(
         <>
-        <div className="grid grid-cols-4 ">
+        <div className="grid grid-cols-4 gap-7 max-lg:grid-cols-3 max-sm:grid-cols-2 ">
             {showMoreMeals.map(item => (
-                <Link onClick={() => handleSaveId(item.idMeal as string)} href={`/categories/${item.strMeal}`} key={item.idMeal}>
-                    <Image className="w-full" src={item.strMealThumb} alt={item.strMeal} width={320} height={320} />
-                    <h4>{item.strMeal}</h4>
+                <Link className="h-full p-3 flex flex-col justify-between" 
+                        onClick={() => handleSaveId(item.idMeal as string)} 
+                        href={`/categories/${item.strMeal}`} 
+                        key={item.idMeal}
+                >
+                    <Image className="w-full" 
+                            src={item.strMealThumb} 
+                            alt={item.strMeal} 
+                            width={320} height={320} 
+                    />
+                    <div className="mt-2 flex flex-col flex-grow justify-between">
+                        <h4 className="font-semibold">
+                                                {item.strMeal.length > 25 
+                                                ? `${item.strMeal.slice(0, 25)}...` 
+                                                : item.strMeal}
+                        </h4>
+                        <p className="mt-2 p-2 text-center text-white bg-[#598D66] duration-100 ease-in hover:bg-[#6caa7b]">
+                            Read More
+                        </p>
+                    </div>
                 </Link>
             ))}
         </div>

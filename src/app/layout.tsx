@@ -39,7 +39,9 @@ export default function RootLayout({
               <MealContextProvider>
                 <LoginFormWrapper>
                 <Header/>
+                <main className="px-20 py-10 max-lg:px-5 max-lg:py-8">
                     {children}
+                </main>
                 </LoginFormWrapper>
               </MealContextProvider>
             </CategoryListContextProvider>

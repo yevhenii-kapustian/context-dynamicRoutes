@@ -11,7 +11,7 @@ export const CategoryListContextProvider = ({children}: {children: React.ReactNo
     const [category, setCategory] = useState<CategoryListType[]>([])
     const [userCategory, setUserCategory] = useState<string>("none")
     const {fetchData} = useData() as DataType
-
+        
     async function getCategory() {
         try {
             const data = await fetchData<{categories: CategoryListType[]}>({url: "https://www.themealdb.com/api/json/v1/1/categories.php"});

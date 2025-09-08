@@ -34,23 +34,21 @@ const MealsCategory = () => {
 
     return(
         <>
-        <div className="grid grid-cols-4 gap-7 max-lg:grid-cols-3 max-sm:grid-cols-2 ">
+        <div className="grid grid-cols-2 gap-7">
             {showMoreMeals.map(item => (
-                <Link className="h-full p-3 flex flex-col justify-between" 
+                <Link className="h-full flex flex-row-reverse justify-between gap-5 bg-white border-1 border-[#9ac2aa] rounded-2xl overflow-hidden" 
                         onClick={() => handleSaveId(item.idMeal as string)} 
                         href={`/categories/${item.strMeal}`} 
                         key={item.idMeal}
                 >
-                    <Image className="w-full" 
-                            src={item.strMealThumb} 
+                    <Image className="w-50" 
+                            src={item.strMealThumb}
                             alt={item.strMeal} 
                             width={320} height={320} 
                     />
-                    <div className="mt-2 flex flex-col flex-grow justify-between">
-                        <h4 className="font-semibold">
-                                                {item.strMeal.length > 25 
-                                                ? `${item.strMeal.slice(0, 25)}...` 
-                                                : item.strMeal}
+                    <div className="w-full p-3 mt-2 flex flex-col justify-center gap-5">
+                        <h4 className="text-xl text-center ">
+                                                {item.strMeal}
                         </h4>
                         <p className="mt-2 p-2 text-center text-white bg-[#598D66] duration-100 ease-in hover:bg-[#6caa7b]">
                             Read More

@@ -6,7 +6,7 @@ import { UserNameType } from "@/types/userName"
 const UserName = () => {
     const {savedUserName} = useUserContext() as UserNameType
 
-    return <p>{savedUserName}</p>
+    return savedUserName
 }
 
 export default UserName

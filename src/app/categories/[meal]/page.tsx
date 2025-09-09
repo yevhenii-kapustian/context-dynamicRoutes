@@ -26,15 +26,15 @@ export default function ProductPage() {
     return(
         <div className='text-[#2C2D35]'>
           <Link className='flex items-center text-xl' href="/categories"><CaretLeft size={17} />Explore Our Menu</Link>
-          <section className='w-fit max-w-250 mt-5 m-auto flex flex-row-reverse gap-5'>  
+          <section className='w-full max-w-250 mt-5 m-auto flex flex-row-reverse gap-5'>  
            <Image className='w-1/2' src={toShowUserMeal.strMealThumb} alt={toShowUserMeal.strMeal} width={400} height={400}/>
             <div className='w-1/2'>
               <h4 className='text-4xl capitalize'>{toShowUserMeal.strMeal}</h4>
               <p className='mt-5'>Category: {toShowUserMeal.strCategory}</p>
               <p>Area: {toShowUserMeal.strArea}</p>
-              <button className={`mt-5 w-full p-2 text-center text-white bg-[#598D66] duration-100 ease-in hover:bg-[#6caa7b]`}
+              <button className={`mt-5 w-full p-2 text-center text-white duration-100 ease-in ${isAdded ? "bg-[#6ba97b] cursor-default" : "bg-[#598D66] cursor-pointer"} hover:bg-[#6caa7b]`}
                       onClick={() => addMeal(toShowUserMeal)}>
-                        Save
+                        {isAdded ? "Saved" : "Save"}
               </button>
             </div>
           </section>

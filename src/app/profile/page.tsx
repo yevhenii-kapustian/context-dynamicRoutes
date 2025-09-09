@@ -1,6 +1,12 @@
+import UserName from "@/components/UserName"
+import Meal from "@/components/Meal"
+
 const ProfilePage = () => {
     return(
-        <>This is Profile Page</>
+        <section>
+            <h3>Hey <UserName/>!</h3>
+            <Meal/>
+        </section>
     )
 }
 

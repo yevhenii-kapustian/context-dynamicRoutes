@@ -1,22 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Roboto } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { CategoryListContextProvider } from "@/context/CategoryList";
 import { UserNameContextProvider } from "@/context/UserName";
 import LoginFormWrapper from "@/components/LoginFormWrapper";
 import { DataProvider } from "@/context/Data";
 import { MealContextProvider } from "@/context/MealContext";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const roboto = Roboto({ 
+  weight: ["300", "400", "500", "600"],
+  subsets: ["latin"]
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -31,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${roboto.className} antialiased`}
       >
         <DataProvider>
           <UserNameContextProvider>
@@ -39,9 +35,10 @@ export default function RootLayout({
               <MealContextProvider>
                 <LoginFormWrapper>
                 <Header/>
-                <main className="px-20 py-10 max-lg:px-5 max-lg:py-8">
+                <main className="flex-1 px-20 py-10 max-lg:px-5 max-lg:py-8">
                     {children}
                 </main>
+                <Footer/>
                 </LoginFormWrapper>
               </MealContextProvider>
             </CategoryListContextProvider>

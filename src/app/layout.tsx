@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Roboto } from "next/font/google";
+import { Geist, Geist_Mono, Montserrat, Roboto } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -9,8 +9,8 @@ import LoginFormWrapper from "@/components/LoginFormWrapper";
 import { DataProvider } from "@/context/Data";
 import { MealContextProvider } from "@/context/MealContext";
 
-const roboto = Roboto({ 
-  weight: ["300", "400", "500", "600"],
+const montserratFont = Montserrat({ 
+  weight: ["300", "400", "500", "600", "700"],
   subsets: ["latin"]
 })
 
@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${roboto.className} antialiased`}
+        className={`${montserratFont.className} antialiased`}
       >
         <DataProvider>
           <UserNameContextProvider>
@@ -35,7 +35,7 @@ export default function RootLayout({
               <MealContextProvider>
                 <LoginFormWrapper>
                 <Header/>
-                <main className="flex-1 px-20 py-10 max-lg:px-5 max-lg:py-8">
+                <main className="flex-1">
                     {children}
                 </main>
                 <Footer/>

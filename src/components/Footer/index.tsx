@@ -7,7 +7,7 @@ import { InstagramLogo, FacebookLogo, TwitterLogo } from "@phosphor-icons/react"
 
 const Footer = () => {
     return(
-        <footer className="p-10 text-[#2C2D35] bg-[#E1EDE6]">
+        <footer className="p-10 text-white bg-gradient-to-r from-[#040817] to-[#081130] mask-t-from-90% mask-t-to-100%">
             <div className="flex justify-center">
                 <Logo/>
             </div>

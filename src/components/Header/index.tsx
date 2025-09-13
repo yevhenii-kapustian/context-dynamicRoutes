@@ -8,7 +8,7 @@ const Header = () => {
     const pathname = usePathname()
 
     return(
-        <header className={pathname === "/" ? "w-full absolute flex justify-evenly items-center text-white" : "flex justify-evenly items-center text-[#2C2D35] bg-[#E1EDE6]"}>
+        <header className={pathname === "/" ? "w-full absolute z-1 flex justify-evenly items-center text-white" : "flex justify-evenly items-center text-[#2C2D35] bg-[#E1EDE6]"}>
             <Logo/>
             <div className="flex gap-5">
                 <Navigation/>

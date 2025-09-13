@@ -11,5 +11,5 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
-  background-color: #eefaf3;
+  background-color: white;
 }

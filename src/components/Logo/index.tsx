@@ -1,7 +1,7 @@
-import Image from "next/image";
+import Link from "next/link";
 
 const Logo = () => {
-    return <Image src="/logo.webp" alt="logo" width={100} height={100} priority/>
+    return <Link className="font-bold text-3xl uppercase" href="/">Logo</Link>
 }
 
 export default Logo

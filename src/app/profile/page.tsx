@@ -32,7 +32,7 @@ const ProfilePage = () => {
                 ) : (
                     <div className="flex items-center justify-center min-h-[250px]">
                         <p className="text-gray-500 text-lg text-center italic capitalize">
-                            You haven't saved any recipes yet 🍴
+                            You haven&apos;t saved any recipes yet 🍴
                         </p>
                     </div>
                 )}

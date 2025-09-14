@@ -8,12 +8,11 @@ import { useUserContext } from "@/context/UserName"
 import CategorySelect from "../CategorySelect"
 
 const LoginForm = () => {
-    const {getCategory, category, userCategory, setUserCategory} = useCategoryListContext() as CategoryListContextType
+    const {getCategory} = useCategoryListContext() as CategoryListContextType
     const {userName, setUserName, setSavedUserName} = useUserContext() as UserNameType
 
     const handleSignIn = (e:React.FormEvent) => {
         e.preventDefault()
-        if (userCategory === "none") return
         setSavedUserName(userName)
     }
 

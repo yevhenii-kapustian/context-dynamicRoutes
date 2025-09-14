@@ -1,7 +1,6 @@
 'use client'
 
 import Image from 'next/image'
-import { useParams } from 'next/navigation'
 import { MealValueType } from '@/types/meal'
 import { useMealContext } from '@/context/MealContext'
 import useMealById from '@/hooks/useMealById'
@@ -13,11 +12,9 @@ export default function ProductPage() {
   
     const [isOpenInstructions, setIsOpenInstructions] = useState<boolean>(false)
   
-    const params = useParams()
-    const {savedUserMeal, savedUserMealId} = useMealContext() as MealValueType
-    const {addMeal} = useMealContext() as MealValueType
+    const {savedUserMeal, savedUserMealId, setSavedUserMealId, addMeal} = useMealContext() as MealValueType
     const toShowUserMeal = useMealById(savedUserMealId as string)
-    const isAdded = savedUserMeal.find(item => item.idMeal === savedUserMealId)
+    const isAdded = savedUserMeal.find(item => item.idMeal === toShowUserMeal?.idMeal)
 
     if (!toShowUserMeal) return <p>Loading</p>
 
@@ -26,6 +23,13 @@ export default function ProductPage() {
       const saveIngredient = toShowUserMeal[`strIngredient${i}` as keyof typeof toShowUserMeal] as string
       const saveMeasure = toShowUserMeal[`strMeasure${i}` as keyof typeof toShowUserMeal] as string
       ingredients.push({saveIngredient, saveMeasure})
+    }
+    
+    const handleSave = () => {
+      if (!isAdded) {
+        addMeal(toShowUserMeal)
+        setSavedUserMealId(toShowUserMeal.idMeal as string)
+      }
     }
 
     return(
@@ -38,7 +42,7 @@ export default function ProductPage() {
               <p className='mt-5'>Category: {toShowUserMeal.strCategory}</p>
               <p>Area: {toShowUserMeal.strArea}</p>
               <button className={`mt-5 w-full p-2 text-center text-white duration-100 ease-in ${isAdded ? "bg-[#6ba97b] cursor-default" : "bg-[#598D66] cursor-pointer"} hover:bg-[#6caa7b]`}
-                      onClick={() => addMeal(toShowUserMeal)}
+                      onClick={handleSave}
                       >
                         {isAdded ? "Saved" : "Save"}
               </button>

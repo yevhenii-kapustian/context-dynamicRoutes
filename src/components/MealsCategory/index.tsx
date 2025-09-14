@@ -34,30 +34,30 @@ const MealsCategory = () => {
 
     return(
         <>
-        <div className="grid grid-cols-3 gap-7">
+        <div className="grid grid-cols-3 gap-7 max-sm:grid-cols-2">
             {showMoreMeals.map(item => (
                 <Link className="h-full justify-between gap-5 bg-white shadow-lg rounded-2xl overflow-hidden" 
                         onClick={() => handleSaveId(item.idMeal as string)} 
                         href={`/categories/${item.strMeal}`} 
                         key={item.idMeal}
                 >
-                    <Image className="w-full" 
+                    <Image className="w-full"
                             src={item.strMealThumb}
                             alt={item.strMeal} 
                             width={320} height={320} 
                     />
-                    <div className="w-full p-6 mt-2 flex flex-col justify-center gap-3">
-                        <h4 className="text-xl font-bold">
+                    <div className="w-full p-6 mt-2 flex flex-col justify-center gap-3 max-sm:p-4">
+                        <h4 className="text-xl font-bold capitalize max-md:text-lg max-sm:text-base">
                                                 {item.strMeal}
                         </h4>
-                        <p className="w-fit mt-2 py-3 px-5 text-[14px] text-center bg-[#FED84C] duration-100 ease-in hover:bg-[#6caa7b] rounded">
+                        <p className="w-fit mt-2 py-3 px-5 text-[14px] text-center bg-[#FED84C] duration-100 ease-in hover:bg-[#6caa7b] rounded max-sm:text-xs">
                             Read More
                         </p>
                     </div>
                 </Link>
             ))}
         </div>
-        <button onClick={() => setShowMore(prev => prev + 10)}>Load More</button>
+        {showMeal.length > showMore && <button onClick={() => setShowMore(prev => prev + 10)}>Load More</button> }
         </>
     )
 }

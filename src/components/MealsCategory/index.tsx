@@ -57,7 +57,7 @@ const MealsCategory = () => {
                 </Link>
             ))}
         </div>
-        {showMeal.length > showMore && <button onClick={() => setShowMore(prev => prev + 10)}>Load More</button> }
+        {showMeal.length > showMore && <button className="m-2 p-2 bg-gray-100 rounded cursor-pointer" onClick={() => setShowMore(prev => prev + 10)}>Load More</button> }
         </>
     )
 }

@@ -10,7 +10,7 @@ import { DataProvider } from "@/context/Data";
 import { MealContextProvider } from "@/context/MealContext";
 
 const montserratFont = Montserrat({ 
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700", "800"],
   subsets: ["latin"]
 })
 

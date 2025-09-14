@@ -19,7 +19,7 @@ const Header = () => {
     }, [pathname])
 
     return(
-        <header className={`p-7 ${pathname === "/" ? "w-full absolute z-1 flex justify-evenly items-center text-white" : "flex justify-evenly items-center text-white bg-gradient-to-r from-[#040817] to-[#081130]"}`}>
+        <header className={`p-7 z-10 max-sm:justify-between ${pathname === "/" ? "w-full absolute z-1 flex justify-evenly items-center text-white" : "flex justify-evenly items-center text-white bg-gradient-to-r from-[#040817] to-[#081130]"}`}>
             <Logo/>
             <div className="flex gap-5 max-sm:hidden">
                 <Navigation/>

@@ -61,7 +61,7 @@ export default function ProductPage() {
             {toShowUserMeal.strInstructions && toShowUserMeal.strInstructions?.length > 500 &&  
             <button 
                     onClick={() => setIsOpenInstructions(prev => !prev)}
-                    className='underline'
+                    className='underline cursor-pointer'
                     >
                         {isOpenInstructions ? "See less" : "See more"}
             </button>

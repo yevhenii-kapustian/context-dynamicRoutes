@@ -15,7 +15,7 @@ const WelcomeSection = () => {
                 <h1 className="text-5xl font-bold text-white max-[380px]:text-4xl">From Savory Dishes to Sweet Treats, All in One Place</h1>
                 <p className="text-white font-light">Explore easy-to-follow recipes, from hearty meals to indulgent desserts, and bring flavors to your kitchen every day.</p>
                 <div className="flex items-center gap-5">
-                    <Link className="py-4 px-6 text-[14px] text-[#2E363E] text-center bg-[#FED84C] rounded max-sm:w-1/2" href="/categories">All Categories</Link>
+                    <Link className="py-4 px-6 text-[14px] text-[#2E363E] text-center shadow-xl shadow-amber-200 bg-[#FED84C] rounded max-sm:w-1/2" href="/categories">All Categories</Link>
                     <p className="text-white max-sm:w-1/2">{category.length} different types of categories</p>
                 </div>
             </div>

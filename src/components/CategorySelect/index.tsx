@@ -14,7 +14,7 @@ const CategorySelect = () => {
     }
 
     return (
-        <div className="relative w-full max-w-xs mx-auto">
+        <div className="relative w-full">
             <button
                 onClick={handleOpen}
                 className="
@@ -22,7 +22,7 @@ const CategorySelect = () => {
                     bg-white
                     border
                     border-gray-300
-                    rounded-xl
+                    rounded
                     py-2 px-4
                     text-gray-700
                     font-medium

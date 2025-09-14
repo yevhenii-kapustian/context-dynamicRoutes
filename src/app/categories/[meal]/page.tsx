@@ -33,15 +33,15 @@ export default function ProductPage() {
     }
 
     return(
-        <div className='text-[#2C2D35]'>
-          <Link className='flex items-center text-xl' href="/categories"><CaretLeft size={17} />Explore Our Menu</Link>
-          <section className='w-full max-w-250 mt-10 m-auto flex flex-row-reverse gap-5'>  
-           <Image className='w-1/2' src={toShowUserMeal.strMealThumb} alt={toShowUserMeal.strMeal} width={400} height={400}/>
-            <div className='w-1/2'>
+        <div className='py-8 px-15 text-[#2C2D35] max-sm:px-5'>
+          <Link className='w-fit flex items-center text-xl underline max-sm:text-base' href="/categories"><CaretLeft size={17} />Explore Our Menu</Link>
+          <section className='w-full max-w-250 mt-10 m-auto flex flex-row-reverse gap-5 max-sm:flex-col'>  
+           <Image className='w-1/2 max-sm:w-full rounded' src={toShowUserMeal.strMealThumb} alt={toShowUserMeal.strMeal} width={400} height={400}/>
+            <div className='w-1/2 max-sm:w-full'>
               <h4 className='text-4xl font-bold capitalize'>{toShowUserMeal.strMeal}</h4>
               <p className='mt-5'>Category: {toShowUserMeal.strCategory}</p>
               <p>Area: {toShowUserMeal.strArea}</p>
-              <button className={`mt-5 w-full p-2 text-center text-white duration-100 ease-in ${isAdded ? "bg-[#6ba97b] cursor-default" : "bg-[#598D66] cursor-pointer"} hover:bg-[#6caa7b]`}
+              <button className={`mt-5 w-full p-2 text-center text-white rounded duration-100 ease-in ${isAdded ? "bg-[#6ba97b] cursor-default" : "bg-[#FED84C] cursor-pointer hover:bg-[#EFCC48]"}`}
                       onClick={handleSave}
                       >
                         {isAdded ? "Saved" : "Save"}
@@ -67,11 +67,12 @@ export default function ProductPage() {
             </button>
             }
           </section>
-          <section className='mt-10 m-auto'>
-            <h4 className='text-2xl text-center font-bold uppercase'>Ingredients / Measures</h4>
+          <section className='mt-10'>
+            <h4 className='mb-5 text-2xl text-center font-bold uppercase'>Ingredients / Measures</h4>
             {ingredients.map((item, index) => (
-              <div className='flex gap-10' key={index}>
+              <div className='flex justify-center gap-3 capitalize' key={index}>
                   <p>{item.saveIngredient}</p>
+                  {item.saveIngredient && <span>-</span>}
                   <p>{item.saveMeasure}</p>
               </div>
             ) )}

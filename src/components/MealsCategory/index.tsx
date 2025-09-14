@@ -50,7 +50,7 @@ const MealsCategory = () => {
                         <h4 className="text-xl font-bold capitalize max-md:text-lg max-sm:text-base">
                                                 {item.strMeal}
                         </h4>
-                        <p className="w-fit mt-2 py-3 px-5 text-[14px] text-center bg-[#FED84C] duration-100 ease-in hover:bg-[#6caa7b] rounded max-sm:text-xs">
+                        <p className="w-fit mt-2 py-3 px-5 text-[14px] text-center bg-[#FED84C] duration-100 ease-in hover:bg-[#EFCC48] rounded max-sm:text-xs">
                             Read More
                         </p>
                     </div>

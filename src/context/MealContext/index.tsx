@@ -20,10 +20,6 @@ export const MealContextProvider = ({children}: {children: React.ReactNode}) => 
         setSavedUserMeal(prev => prev.filter(meal => meal.idMeal !== id))
     }
 
-    const resetMeals = () => {
-        setSavedUserMeal([])
-    }
-
    useEffect(() => {
         const savedMeals = localStorage.getItem("savedUserMeal")
         if (savedMeals) setSavedUserMeal(JSON.parse(savedMeals))
@@ -41,7 +37,7 @@ export const MealContextProvider = ({children}: {children: React.ReactNode}) => 
     }, [savedUserMealId])
 
     return(
-        <MealContext.Provider value={{savedUserMeal, setSavedUserMeal, addMeal, removeMeal, resetMeals, savedUserMealId, setSavedUserMealId}}>
+        <MealContext.Provider value={{savedUserMeal, setSavedUserMeal, addMeal, removeMeal, savedUserMealId, setSavedUserMealId}}>
             {children}
         </MealContext.Provider>
     )

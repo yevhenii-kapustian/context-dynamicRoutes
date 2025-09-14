@@ -16,7 +16,7 @@ const ProfilePage = () => {
                 <LogoutButton />
             </div>
 
-            <h3 className="text-xl mb-10">
+            <h3 className="text-xl mb-3">
                 Hey <span className="font-semibold text-[#5a598d]"><UserName /></span> 👋
             </h3>
 
@@ -26,7 +26,7 @@ const ProfilePage = () => {
                 </h3>
 
                 {savedUserMeal.length > 0 ? (
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-4 gap-5 max-lg:grid-cols-3 max-sm:grid-cols-2">
                         <Meal />
                     </div>
                 ) : (

@@ -19,7 +19,6 @@ export type MealValueType = {
     setSavedUserMeal: (item: MealType[]) => void,
     addMeal: (meal: MealType) => void,
     removeMeal: (id: string) => void,
-    resetMeals: () => void
     savedUserMealId: string,
     setSavedUserMealId: (id: string) => void
 }

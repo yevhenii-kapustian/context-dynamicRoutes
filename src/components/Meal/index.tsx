@@ -15,10 +15,10 @@ const Meal = () => {
             {savedUserMeal.map(item => (
                 <div key={item.idMeal}>
                     <Link href={`/categories/${item.strMeal}`} onClick={() => handleSaveId(item.idMeal as string)}>
-                        <Image className="w-full" src={item.strMealThumb} alt={item.strMeal} width={300} height={300}/>
-                        <h5>{item.strMeal}</h5>
+                        <Image className="w-full rounded" src={item.strMealThumb} alt={item.strMeal} width={300} height={300}/>
+                        <h5 className="font-bold capitalize">{item.strMeal}</h5>
                     </Link>
-                    <button onClick={() => removeMeal(item.idMeal)}>Remove</button>
+                    <button className="max-sm:text-sm" onClick={() => removeMeal(item.idMeal)}>Remove</button>
                 </div>
             ))}
         </>
